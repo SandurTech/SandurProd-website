@@ -1,0 +1,35 @@
+// ==========================================================================
+// Main SCSS Manifest — Sandur Productions
+// ==========================================================================
+// Import order follows the 7-1 pattern:
+// Abstracts → Vendors → Base → Layout → Components → Pages → Themes
+
+// Abstracts (no CSS output — variables, functions, mixins, placeholders)
+@use 'abstracts/variables';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
+@use 'abstracts/placeholders';
+
+// Vendors (third-party overrides)
+@use 'vendors/vendors';
+
+// Base (reset, typography, global element styles)
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/base';
+
+// Layout (structural layout patterns)
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/navigation';
+@use 'layout/footer';
+
+// Components (reusable UI components)
+@use 'components/buttons';
+@use 'components/cards';
+
+// Pages (page-specific styles)
+@use 'pages/home';
+
+// Themes (theme overrides)
+@use 'themes/default';

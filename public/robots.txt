@@ -1,0 +1,56 @@
+# ==========================================================================
+# robots.txt — Sandur Productions (sandurproductions.com)
+# ==========================================================================
+# Allow all search engine crawlers and AI bots full access
+# to maximize SEO visibility and AI citation potential.
+
+# Default: Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap reference
+Sitemap: https://sandurproductions.com/sitemap.xml
+
+# --------------------------------------------------------------------------
+# AI Search Bot Access — Explicitly allowed for AI visibility
+# Per AI SEO best practices, these bots should NOT be blocked
+# to enable citation in AI-generated answers.
+# --------------------------------------------------------------------------
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini & AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot (via Bing)
+User-agent: Bingbot
+Allow: /
+
+# --------------------------------------------------------------------------
+# Block training-only crawlers (not search-related)
+# These crawl for model training but don't provide citation benefits
+# --------------------------------------------------------------------------
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot-training
+Disallow: /

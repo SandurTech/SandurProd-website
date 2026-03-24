@@ -1,0 +1,71 @@
+// ==========================================================================
+// Placeholders — Extendable style patterns (brand-aligned)
+// ==========================================================================
+
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+// --------------------------------------------------------------------------
+// Button Base
+// --------------------------------------------------------------------------
+
+%button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: vars.$spacing-sm;
+  padding: vars.$spacing-sm vars.$spacing-lg;
+  border: none;
+  border-radius: vars.$border-radius-md;
+  font-family: vars.$font-family-base;
+  font-size: vars.$font-size-base;
+  font-weight: vars.$font-weight-semibold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all vars.$transition-base;
+  letter-spacing: vars.$letter-spacing-wide;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @include mix.focus-visible;
+}
+
+// --------------------------------------------------------------------------
+// Card Base
+// --------------------------------------------------------------------------
+
+%card-base {
+  background: vars.$color-surface;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$border-radius-lg;
+  overflow: hidden;
+  transition: all vars.$transition-base;
+}
+
+// --------------------------------------------------------------------------
+// Section Base
+// --------------------------------------------------------------------------
+
+%section-base {
+  @include mix.section-padding;
+  position: relative;
+}
+
+// --------------------------------------------------------------------------
+// Link Base
+// --------------------------------------------------------------------------
+
+%link-base {
+  color: vars.$color-accent;
+  text-decoration: none;
+  transition: color vars.$transition-fast;
+
+  &:hover {
+    color: vars.$color-accent-light;
+  }
+
+  @include mix.focus-visible;
+}

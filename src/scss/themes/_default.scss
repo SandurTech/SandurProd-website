@@ -1,0 +1,119 @@
+// ==========================================================================
+// Themes — CSS Custom Properties for Dark / Light Mode
+// ==========================================================================
+// Both themes are anchored to the 3 brand colors:
+//   Dark  → bg: $color-primary (#262626), text: $color-secondary (#f2f2f2)
+//   Light → bg: $color-secondary (#f2f2f2), text: $color-primary (#262626)
+//   Accent (#ffa31a) stays constant across themes.
+
+@use '../abstracts/variables' as vars;
+
+// --------------------------------------------------------------------------
+// Dark Theme (DEFAULT — cinematic production house aesthetic)
+// --------------------------------------------------------------------------
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  // Accent (same in both themes)
+  --color-accent: #{vars.$color-accent};
+  --color-accent-light: #{vars.$color-accent-light};
+  --color-accent-dark: #{vars.$color-accent-dark};
+  --color-accent-lighter: #{vars.$color-accent-lighter};
+  --color-accent-darker: #{vars.$color-accent-darker};
+
+  // Surfaces — anchored to $color-primary (#262626)
+  --color-bg: #{vars.$color-primary-darker};
+  --color-bg-alt: #{vars.$color-primary-darkest};
+  --color-surface: #{vars.$color-primary};
+  --color-surface-elevated: #{vars.$color-primary-light};
+
+  // Text — anchored to $color-secondary (#f2f2f2)
+  --color-text: #{vars.$color-secondary};
+  --color-text-heading: #ffffff;
+  --color-text-muted: #{vars.$color-secondary-darkest};
+  --color-text-on-accent: #{vars.$color-primary};
+
+  // Borders
+  --color-border: #{rgba(vars.$color-secondary, 0.12)};
+  --color-border-strong: #{rgba(vars.$color-secondary, 0.25)};
+
+  // Shadows (deep)
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+
+  // Glass
+  --glass-bg: #{rgba(vars.$color-primary, 0.7)};
+  --glass-border: #{rgba(vars.$color-secondary, 0.1)};
+
+  // Scrollbar
+  --scrollbar-track: #{vars.$color-primary-darker};
+  --scrollbar-thumb: #{vars.$color-primary-light};
+  --scrollbar-thumb-hover: #{vars.$color-accent-dark};
+
+  // Selection
+  --selection-bg: #{rgba(vars.$color-accent, 0.35)};
+  --selection-color: #ffffff;
+}
+
+// --------------------------------------------------------------------------
+// Light Theme — anchored to $color-secondary (#f2f2f2)
+// --------------------------------------------------------------------------
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  // Accent (same)
+  --color-accent: #{vars.$color-accent};
+  --color-accent-light: #{vars.$color-accent-dark};
+  --color-accent-dark: #{vars.$color-accent-darker};
+  --color-accent-lighter: #{vars.$color-accent-lightest};
+  --color-accent-darker: #{vars.$color-accent-darkest};
+
+  // Surfaces — anchored to $color-secondary (#f2f2f2)
+  --color-bg: #{vars.$color-secondary};
+  --color-bg-alt: #{vars.$color-secondary-light};
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+
+  // Text — anchored to $color-primary (#262626)
+  --color-text: #{vars.$color-primary};
+  --color-text-heading: #{vars.$color-primary-dark};
+  --color-text-muted: #{vars.$color-primary-light};
+  --color-text-on-accent: #ffffff;
+
+  // Borders
+  --color-border: #{rgba(vars.$color-primary, 0.1)};
+  --color-border-strong: #{rgba(vars.$color-primary, 0.2)};
+
+  // Shadows (softer)
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+
+  // Glass (light frosted)
+  --glass-bg: #{rgba(#ffffff, 0.7)};
+  --glass-border: #{rgba(vars.$color-primary, 0.08)};
+
+  // Scrollbar
+  --scrollbar-track: #{vars.$color-secondary};
+  --scrollbar-thumb: #{vars.$color-secondary-darker};
+  --scrollbar-thumb-hover: #{vars.$color-accent-dark};
+
+  // Selection
+  --selection-bg: #{rgba(vars.$color-accent, 0.25)};
+  --selection-color: #{vars.$color-primary};
+}
+
+// --------------------------------------------------------------------------
+// Smooth theme transition on all themed elements
+// --------------------------------------------------------------------------
+
+:root {
+  --theme-transition: color 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
+}

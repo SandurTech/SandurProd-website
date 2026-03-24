@@ -1,0 +1,222 @@
+// ==========================================================================
+// Variables — Sandur Productions Design System
+// ==========================================================================
+// Brand Identity: Bold, cinematic, high-contrast.
+// 3-Color System: Orange Accent + Dark Slate Primary + Light Gray Secondary
+// Fonts: Impact (headings / logo) + Inter (body / UI)
+
+@use 'sass:math';
+@use 'sass:color';
+
+// --------------------------------------------------------------------------
+// Core Brand Colors (3-color system — all derived from these)
+// --------------------------------------------------------------------------
+
+$color-accent: #ffa31a;          // Orange — energy, creativity, warmth
+$color-primary: #262626;         // Dark Slate/Charcoal — authority, cinema
+$color-secondary: #f2f2f2;       // Light Gray/Silver — clarity, space
+
+// --------------------------------------------------------------------------
+// Derived: Accent Scale (from $color-accent)
+// --------------------------------------------------------------------------
+
+$color-accent-lightest: color.mix(white, $color-accent, 80%);   // #fff3d9
+$color-accent-lighter: color.mix(white, $color-accent, 60%);    // #ffe4a3
+$color-accent-light: color.mix(white, $color-accent, 30%);      // #ffc15e
+$color-accent-dark: color.mix(black, $color-accent, 20%);       // #cc8215
+$color-accent-darker: color.mix(black, $color-accent, 40%);     // #996210
+$color-accent-darkest: color.mix(black, $color-accent, 60%);    // #66410a
+
+// --------------------------------------------------------------------------
+// Derived: Primary Scale (from $color-primary)
+// --------------------------------------------------------------------------
+
+$color-primary-lightest: color.mix(white, $color-primary, 90%); // #e8e8e8
+$color-primary-lighter: color.mix(white, $color-primary, 70%);  // #b8b8b8
+$color-primary-light: color.mix(white, $color-primary, 40%);    // #7a7a7a
+$color-primary-dark: color.mix(black, $color-primary, 20%);     // #1e1e1e
+$color-primary-darker: color.mix(black, $color-primary, 40%);   // #171717
+$color-primary-darkest: color.mix(black, $color-primary, 60%);  // #0f0f0f
+
+// --------------------------------------------------------------------------
+// Derived: Secondary Scale (from $color-secondary)
+// --------------------------------------------------------------------------
+
+$color-secondary-light: color.mix(white, $color-secondary, 50%);  // #f9f9f9
+$color-secondary-dark: color.mix(black, $color-secondary, 10%);   // #dadada
+$color-secondary-darker: color.mix(black, $color-secondary, 25%); // #b6b6b6
+$color-secondary-darkest: color.mix(black, $color-secondary, 40%);// #919191
+
+// --------------------------------------------------------------------------
+// Semantic Colors (derived from the 3 brand colors)
+// --------------------------------------------------------------------------
+
+$color-text: $color-secondary;                         // Light text on dark bg
+$color-text-muted: $color-secondary-darkest;           // Muted text
+$color-text-heading: #ffffff;                          // Pure white headings
+$color-text-on-accent: $color-primary;                 // Dark text on accent bg
+
+$color-background: $color-primary-darkest;             // Deepest dark
+$color-background-alt: $color-primary-darker;          // Slightly lighter dark
+$color-surface: $color-primary;                        // Card / panel surfaces
+$color-surface-elevated: $color-primary-light;         // Elevated surfaces
+
+$color-border: rgba($color-secondary, 0.12);           // Subtle borders
+$color-border-strong: rgba($color-secondary, 0.25);    // Visible borders
+$color-border-accent: rgba($color-accent, 0.35);       // Accent borders
+
+// --------------------------------------------------------------------------
+// Feedback Colors (derived from brand colors where possible)
+// --------------------------------------------------------------------------
+
+$color-error: #e53935;                                  // Red (contrast-safe)
+$color-success: #43a047;                                // Green
+$color-warning: $color-accent;                          // Use brand orange
+$color-info: #1e88e5;                                   // Blue
+
+// --------------------------------------------------------------------------
+// Color Maps
+// --------------------------------------------------------------------------
+
+$colors: (
+  'accent': $color-accent,
+  'primary': $color-primary,
+  'secondary': $color-secondary,
+  'error': $color-error,
+  'success': $color-success,
+  'warning': $color-warning,
+  'info': $color-info,
+);
+
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+
+// Impact for headings/logo; Inter for body/UI (Sandur Group family font)
+$font-family-heading: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+$font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+$font-family-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+$font-size-base: 1rem;        // 16px
+$font-size-xs: 0.75rem;       // 12px
+$font-size-sm: 0.875rem;      // 14px
+$font-size-md: 1rem;          // 16px
+$font-size-lg: 1.125rem;      // 18px
+$font-size-xl: 1.25rem;       // 20px
+$font-size-2xl: 1.5rem;       // 24px
+$font-size-3xl: 1.875rem;     // 30px
+$font-size-4xl: 2.25rem;      // 36px
+$font-size-5xl: 3rem;         // 48px
+$font-size-6xl: 3.75rem;      // 60px
+$font-size-7xl: 4.5rem;       // 72px
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+$line-height-tight: 1.15;
+$line-height-snug: 1.3;
+$line-height-base: 1.6;
+$line-height-relaxed: 1.75;
+
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+
+// --------------------------------------------------------------------------
+// Spacing Scale (8px base unit)
+// --------------------------------------------------------------------------
+
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit * 0.5;  // 4px
+$spacing-sm: $spacing-unit;        // 8px
+$spacing-md: $spacing-unit * 2;    // 16px
+$spacing-lg: $spacing-unit * 3;    // 24px
+$spacing-xl: $spacing-unit * 4;    // 32px
+$spacing-2xl: $spacing-unit * 5;   // 40px
+$spacing-3xl: $spacing-unit * 6;   // 48px
+$spacing-4xl: $spacing-unit * 8;   // 64px
+$spacing-5xl: $spacing-unit * 10;  // 80px
+$spacing-6xl: $spacing-unit * 12;  // 96px
+
+// --------------------------------------------------------------------------
+// Breakpoints
+// --------------------------------------------------------------------------
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$breakpoints: (
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  'xxl': $breakpoint-xxl,
+);
+
+// --------------------------------------------------------------------------
+// Layout
+// --------------------------------------------------------------------------
+
+$container-max-width: 1200px;
+$container-padding: $spacing-md;
+
+// --------------------------------------------------------------------------
+// Z-index Scale
+// --------------------------------------------------------------------------
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// --------------------------------------------------------------------------
+// Transitions & Animations
+// --------------------------------------------------------------------------
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+$transition-cinematic: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// --------------------------------------------------------------------------
+// Border Radius
+// --------------------------------------------------------------------------
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-2xl: 24px;
+$border-radius-pill: 50px;
+$border-radius-circle: 50%;
+
+// --------------------------------------------------------------------------
+// Shadows (using brand colors for consistency)
+// --------------------------------------------------------------------------
+
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+$shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+$shadow-glow: 0 0 20px rgba($color-accent, 0.3);
+$shadow-glow-subtle: 0 0 12px rgba($color-accent, 0.15);
+
+// --------------------------------------------------------------------------
+// Glassmorphism (using brand palette)
+// --------------------------------------------------------------------------
+
+$glass-bg: rgba($color-primary, 0.7);
+$glass-border: rgba($color-secondary, 0.1);
+$glass-blur: 16px;

@@ -1,0 +1,83 @@
+// ==========================================================================
+// Base — Global element styles (theme-aware via CSS custom properties)
+// ==========================================================================
+
+@use '../abstracts/variables' as vars;
+
+// --------------------------------------------------------------------------
+// Root & Body
+// --------------------------------------------------------------------------
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: vars.$font-family-base;
+  font-size: vars.$font-size-base;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: vars.$line-height-base;
+  transition: var(--theme-transition);
+}
+
+// --------------------------------------------------------------------------
+// Root (React mount)
+// --------------------------------------------------------------------------
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+// --------------------------------------------------------------------------
+// Selection — brand orange highlight
+// --------------------------------------------------------------------------
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+// --------------------------------------------------------------------------
+// Scrollbar (Webkit) — theme-aware
+// --------------------------------------------------------------------------
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: vars.$border-radius-pill;
+
+  &:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Skip Navigation Link (Accessibility)
+// --------------------------------------------------------------------------
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: vars.$spacing-md;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: vars.$font-weight-semibold;
+  border-radius: 0 0 vars.$border-radius-md vars.$border-radius-md;
+  z-index: vars.$z-index-tooltip;
+  transition: top vars.$transition-fast;
+
+  &:focus {
+    top: 0;
+  }
+}

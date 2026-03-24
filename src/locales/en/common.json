@@ -1,0 +1,50 @@
+{
+  "nav": {
+    "works": "Works",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Sandur Productions",
+    "subtitle": "Crafting cinematic stories that move, inspire, and provoke thought."
+  },
+  "works": {
+    "heading": "Our Works",
+    "theScam": {
+      "title": "THE SCAM",
+      "genre": "Finance Web Series",
+      "description": "A gripping finance web series exploring the world of financial fraud and deception."
+    },
+    "uttara": {
+      "title": "UTTARA",
+      "genre": "Short Film",
+      "description": "A compelling short film by Sandur Productions."
+    }
+  },
+  "about": {
+    "heading": "About",
+    "description": "Sandur Productions is an independent student-led production house founded by Amogha Raj Sandur."
+  },
+  "contact": {
+    "heading": "Get in Touch",
+    "description": "Interested in collaborating or have a project in mind? Reach out to us."
+  },
+  "footer": {
+    "copyright": "© {{year}} Sandur Productions. All rights reserved.",
+    "madeWith": "Made with passion",
+    "social": {
+      "youtube": "YouTube",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "threads": "Threads"
+    }
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System",
+    "toggle": "Toggle theme",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode"
+  }
+}

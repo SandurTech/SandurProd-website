@@ -1,0 +1,93 @@
+// ==========================================================================
+// Functions — Utility functions for the design system
+// ==========================================================================
+
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:map';
+@use 'variables' as vars;
+
+// --------------------------------------------------------------------------
+// Unit Conversion
+// --------------------------------------------------------------------------
+
+/// Convert px to rem
+/// @param {Number} $px - Pixel value
+/// @param {Number} $base [16] - Base font size
+/// @return {Number} Rem value
+@function px-to-rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+/// Convert rem to px
+/// @param {Number} $rem - Rem value
+/// @param {Number} $base [16] - Base font size
+/// @return {Number} Pixel value
+@function rem-to-px($rem, $base: 16) {
+  @return math.div($rem, 1rem) * $base * 1px;
+}
+
+// --------------------------------------------------------------------------
+// Spacing
+// --------------------------------------------------------------------------
+
+/// Calculate spacing based on the spacing unit
+/// @param {Number} $multiplier - Multiplier for the spacing unit
+/// @return {Number} Spacing value
+@function spacing($multiplier) {
+  @return vars.$spacing-unit * $multiplier;
+}
+
+// --------------------------------------------------------------------------
+// Color Functions (uses brand 3-color system)
+// --------------------------------------------------------------------------
+
+/// Lighten a color by mixing with white
+/// @param {Color} $clr - Base color
+/// @param {Number} $percentage - Mix percentage
+/// @return {Color} Tinted color
+@function tint($clr, $percentage) {
+  @return color.mix(white, $clr, $percentage);
+}
+
+/// Darken a color by mixing with black
+/// @param {Color} $clr - Base color
+/// @param {Number} $percentage - Mix percentage
+/// @return {Color} Shaded color
+@function shade($clr, $percentage) {
+  @return color.mix(black, $clr, $percentage);
+}
+
+/// Create a semi-transparent version of a color
+/// @param {Color} $clr - Base color
+/// @param {Number} $alpha - Opacity (0-1)
+/// @return {Color} Transparent color
+@function alpha($clr, $alpha) {
+  @return rgba($clr, $alpha);
+}
+
+// --------------------------------------------------------------------------
+// Map Access
+// --------------------------------------------------------------------------
+
+/// Get a color from the colors map
+/// @param {String} $name - Color name
+/// @return {Color} Color value
+@function get-color($name) {
+  @if map.has-key(vars.$colors, $name) {
+    @return map.get(vars.$colors, $name);
+  }
+  @warn 'Color `#{$name}` not found in $colors map.';
+  @return null;
+}
+
+/// Get a breakpoint value from the breakpoints map
+/// @param {String} $name - Breakpoint name
+/// @return {Number} Breakpoint value
+@function get-breakpoint($name) {
+  @if map.has-key(vars.$breakpoints, $name) {
+    @return map.get(vars.$breakpoints, $name);
+  }
+  @warn 'Breakpoint `#{$name}` not found in $breakpoints map.';
+  @return null;
+}

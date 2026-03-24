@@ -1,0 +1,114 @@
+// ==========================================================================
+// Typography — Base type styles (theme-aware via CSS custom properties)
+// ==========================================================================
+
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
+
+// --------------------------------------------------------------------------
+// Headings — Impact font, uppercase, bold presence
+// --------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: vars.$font-family-heading;
+  color: var(--color-text-heading);
+  line-height: vars.$line-height-tight;
+  letter-spacing: vars.$letter-spacing-wide;
+  font-weight: vars.$font-weight-bold;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+h1 {
+  font-size: clamp(vars.$font-size-4xl, 5vw + 1rem, vars.$font-size-7xl);
+  font-weight: vars.$font-weight-extrabold;
+}
+
+h2 {
+  font-size: clamp(vars.$font-size-2xl, 3vw + 0.5rem, vars.$font-size-5xl);
+  font-weight: vars.$font-weight-bold;
+}
+
+h3 {
+  font-size: clamp(vars.$font-size-xl, 2vw + 0.25rem, vars.$font-size-3xl);
+}
+
+h4 {
+  font-size: clamp(vars.$font-size-lg, 1.5vw + 0.25rem, vars.$font-size-2xl);
+}
+
+h5 {
+  font-size: vars.$font-size-xl;
+}
+
+h6 {
+  font-size: vars.$font-size-lg;
+}
+
+// --------------------------------------------------------------------------
+// Body Text — Inter, clean readability
+// --------------------------------------------------------------------------
+
+p {
+  color: var(--color-text);
+  line-height: vars.$line-height-base;
+  margin-bottom: vars.$spacing-md;
+  transition: color 0.3s ease;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+small {
+  font-size: vars.$font-size-sm;
+  color: var(--color-text-muted);
+}
+
+strong {
+  font-weight: vars.$font-weight-semibold;
+  color: var(--color-text-heading);
+}
+
+// --------------------------------------------------------------------------
+// Links — Brand orange accent
+// --------------------------------------------------------------------------
+
+a {
+  color: var(--color-accent);
+  transition: color vars.$transition-fast;
+
+  &:hover {
+    color: var(--color-accent-light);
+  }
+
+  @include mix.focus-visible;
+}
+
+// --------------------------------------------------------------------------
+// Utility Classes
+// --------------------------------------------------------------------------
+
+.text-gradient {
+  @include mix.accent-gradient;
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: vars.$letter-spacing-widest;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-semibold;
+}
