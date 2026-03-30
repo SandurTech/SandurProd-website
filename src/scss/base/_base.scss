@@ -81,3 +81,26 @@ body {
     top: 0;
   }
 }
+
+// --------------------------------------------------------------------------
+// High Contrast Mode (Accessibility — WCAG 1.4.11)
+// --------------------------------------------------------------------------
+
+@media (prefers-contrast: more) {
+  body {
+    --color-text: #ffffff;
+    --color-text-muted: #d4d4d4;
+    --color-border: #888888;
+    --glass-border: #999999;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  button,
+  [role="button"] {
+    border: 2px solid currentColor;
+  }
+}
+

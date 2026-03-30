@@ -71,11 +71,19 @@ describe('SEO Files', () => {
       expect(content).toContain('<priority>1.0</priority>')
     })
 
-    it('contains SPA section anchors', () => {
+    it('contains locale-prefixed URLs', () => {
       const content = readFileSync(sitemapPath, 'utf-8')
-      expect(content).toContain('#works')
-      expect(content).toContain('#about')
-      expect(content).toContain('#contact')
+      expect(content).toContain('/en/')
+      expect(content).toContain('/hi/')
+      expect(content).toContain('/kn/')
+    })
+
+    it('contains main page URLs', () => {
+      const content = readFileSync(sitemapPath, 'utf-8')
+      expect(content).toContain('/about')
+      expect(content).toContain('/projects')
+      expect(content).toContain('/blog')
+      expect(content).toContain('/privacy')
     })
 
     it('has lastmod dates', () => {

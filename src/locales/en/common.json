@@ -1,15 +1,36 @@
 {
+  "brand": "Sandur Productions",
   "nav": {
-    "works": "Works",
+    "home": "Home",
     "about": "About",
-    "contact": "Contact"
+    "projects": "Projects",
+    "search": "Search",
+    "searchPlaceholder": "Search by project, crew, cast, or genre...",
+    "closeSearch": "Close search",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu",
+    "blog": "Blog"
+  },
+  "settings": {
+    "preferences": "Preferences"
   },
   "hero": {
     "title": "Sandur Productions",
-    "subtitle": "Crafting cinematic stories that move, inspire, and provoke thought."
+    "subtitle": "Crafting cinematic stories that move, inspire, and provoke thought.",
+    "cta": "Explore Our Work"
   },
-  "works": {
-    "heading": "Our Works",
+  "projects": {
+    "heading": "Our Projects",
+    "filterAll": "All",
+    "filterWebSeries": "Web Series",
+    "filterShortFilm": "Short Films",
+    "filterDocumentary": "Documentaries",
+    "viewProject": "View Project",
+    "statusReleased": "Released",
+    "statusInProduction": "In Production",
+    "statusUpcoming": "Upcoming",
+    "noResults": "No projects found matching your search.",
     "theScam": {
       "title": "THE SCAM",
       "genre": "Finance Web Series",
@@ -22,17 +43,31 @@
     }
   },
   "about": {
-    "heading": "About",
-    "description": "Sandur Productions is an independent student-led production house founded by Amogha Raj Sandur."
+    "heading": "About Sandur Productions",
+    "description": "Sandur Productions is an independent student-led production house founded by Amogha Raj Sandur. We craft cinematic stories that move, inspire, and provoke thought — from gripping web series to compelling short films.",
+    "mission": "Our Mission",
+    "missionText": "To tell stories that matter. We believe in the power of cinema to illuminate truth, challenge perspectives, and create lasting emotional impact.",
+    "contactHeading": "Get in Touch",
+    "contactDescription": "Interested in collaborating or have a project in mind? Reach out to us.",
+    "socialHeading": "Follow Us",
+    "email": "Email",
+    "foundedYear": "Founded",
+    "foundedValue": "2026",
+    "basedIn": "Based in",
+    "basedInValue": "India"
   },
   "contact": {
     "heading": "Get in Touch",
     "description": "Interested in collaborating or have a project in mind? Reach out to us."
   },
   "footer": {
-    "copyright": "© {{year}} Sandur Productions. All rights reserved.",
-    "madeWith": "Made with passion",
+    "copyrightCombined": "© {{year}} Amogha Raj Sandur & Sandur Productions. All rights reserved.",
+    "builtBy": "Designed, developed & maintained by",
+    "sandurTech": "SandurTech (Sandur Technologies)",
+    "company": "Company",
+    "legal": "Legal",
     "social": {
+      "heading": "Connect",
       "youtube": "YouTube",
       "linkedin": "LinkedIn",
       "instagram": "Instagram",
@@ -40,11 +75,47 @@
     }
   },
   "theme": {
+    "title": "Theme",
     "dark": "Dark",
     "light": "Light",
     "system": "System",
     "toggle": "Toggle theme",
     "switchToDark": "Switch to dark mode",
     "switchToLight": "Switch to light mode"
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language"
+  },
+  "legal": {
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy",
+    "terms": "Terms of Use",
+    "gdpr": "GDPR Compliance",
+    "status": "In development & refinement"
+  },
+  "cookie": {
+    "bannerTitle": "We value your privacy",
+    "bannerText": "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
+    "customize": "Customize",
+    "rejectAll": "Reject All",
+    "acceptAll": "Accept All",
+    "preferencesTitle": "Privacy Preferences",
+    "preferencesDesc": "Review and manage your privacy settings below. You can change your preferences at any time.",
+    "strictTitle": "Strictly Necessary",
+    "alwaysActive": "Always Active",
+    "strictDesc": "These cookies are essential for the website to function properly. They cannot be disabled.",
+    "analyticsTitle": "Analytics & Tracking",
+    "analyticsDesc": "These cookies help us understand how visitors interact with the website by collecting and reporting information anonymously (e.g., Google Analytics, Clarity).",
+    "marketingTitle": "Marketing",
+    "marketingDesc": "These cookies are used to track visitors across websites to allow publishers to display relevant advertisements.",
+    "learnMore": "Learn more in our Cookie Policy",
+    "savePreferences": "Save Preferences"
+  },
+  "blog": {
+    "subtitle": "Stories, behind the scenes, and updates from Sandur Productions.",
+    "comingSoon": "In development, coming soon.",
+    "comingSoonSubtext": "We are currently crafting stories and behind-the-scenes content to share with you. Stay tuned!"
   }
 }
+

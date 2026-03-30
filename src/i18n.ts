@@ -26,9 +26,9 @@ i18n
     },
 
     detection: {
-      // localStorage first, then browser language, then HTML lang attribute
-      // Route-based detection will be added when react-router is installed
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      // Path first (route-based i18n), then localStorage, then browser
+      order: ['path', 'localStorage', 'navigator', 'htmlTag'],
+      lookupFromPathIndex: 0, // /:locale/ is the first path segment
       lookupLocalStorage: 'sandurprod-lang',
       caches: ['localStorage'],
     },

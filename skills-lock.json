@@ -16,6 +16,11 @@
       "sourceType": "github",
       "computedHash": "80c477418be4bdd2d102ba5a71760125a9c1925292f5b3c208ee56ab9e6e3cc2"
     },
+    "gdpr-data-handling": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "168cc9708309cdecdbb7f618ab564d2897efc65715abc472a77265479e517c50"
+    },
     "html": {
       "source": "mindrally/skills",
       "sourceType": "github",
@@ -51,10 +56,25 @@
       "sourceType": "github",
       "computedHash": "4cdfd1ba49925184462a7524586a5ec0b127668498e7bf2972ef0d4c112e9585"
     },
+    "sitemap-robots": {
+      "source": "canatufkansu/claude-skills",
+      "sourceType": "github",
+      "computedHash": "3e47da5bb6e5041cd33ddfd68db76209c7ddcaf142c25ad16452086b89259428"
+    },
+    "tanstack-router": {
+      "source": "tanstack-skills/tanstack-skills",
+      "sourceType": "github",
+      "computedHash": "24beccc4016f91bab65547209cfd849ea5e66f3d5d92820683a9dd84669ced56"
+    },
     "ui-ux-pro-max": {
       "source": "nextlevelbuilder/ui-ux-pro-max-skill",
       "sourceType": "github",
       "computedHash": "0a413bf988d06481f69bb81df2070741c3ba12dd9f1be2706d57f259c905992d"
+    },
+    "xml-sitemap": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "computedHash": "682b43a339f1e3dba2bfd53465a481a1b2003152d8a14e4f1ef6fba37fe1c8e6"
     }
   }
 }

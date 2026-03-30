@@ -1,0 +1,342 @@
+// ==========================================================================
+// Footer — Component Styles
+// ==========================================================================
+
+@use '../../../scss/abstracts/variables' as vars;
+@use '../../../scss/abstracts/mixins' as mix;
+
+// --------------------------------------------------------------------------
+// Footer Shell
+// --------------------------------------------------------------------------
+
+.footer {
+  margin-top: auto; // Push to bottom via flex layout
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  transition: var(--theme-transition);
+}
+
+// --------------------------------------------------------------------------
+// Accent Top Border
+// --------------------------------------------------------------------------
+
+.accentBorder {
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    vars.$color-accent-dark,
+    vars.$color-accent,
+    vars.$color-accent-light,
+    vars.$color-accent
+  );
+  background-size: 200% 100%;
+  animation: shimmerBorder 8s ease-in-out infinite;
+}
+
+@keyframes shimmerBorder {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+// --------------------------------------------------------------------------
+// Container (3-column grid)
+// --------------------------------------------------------------------------
+
+.container {
+  @include mix.container;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$spacing-xl;
+  padding-block: vars.$spacing-3xl;
+
+  @include mix.respond-to('md') {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: vars.$spacing-3xl;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Brand Column
+// --------------------------------------------------------------------------
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-md;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: vars.$spacing-sm;
+  text-decoration: none;
+  color: var(--color-text-heading);
+  width: fit-content;
+
+  @include mix.focus-visible;
+
+  &:hover .logoImage {
+    transform: scale(1.05);
+  }
+}
+
+.logoImage {
+  width: 32px;
+  height: 32px;
+  transition: transform vars.$transition-fast;
+}
+
+.logoText {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-bold;
+  letter-spacing: vars.$letter-spacing-wider;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: vars.$font-size-sm;
+  color: var(--color-text-muted);
+  line-height: vars.$line-height-relaxed;
+  max-width: 320px;
+}
+
+// --------------------------------------------------------------------------
+// Columns (Quick Links, Social)
+// --------------------------------------------------------------------------
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-md;
+}
+
+.columnHeading {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: vars.$letter-spacing-widest;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+// --------------------------------------------------------------------------
+// Quick Links
+// --------------------------------------------------------------------------
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-sm;
+}
+
+.footerLink {
+  display: inline-block;
+  font-size: vars.$font-size-sm;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: vars.$spacing-xs 0;
+  transition: color vars.$transition-fast, transform vars.$transition-fast;
+
+  @include mix.focus-visible;
+
+  &:hover {
+    color: var(--color-accent);
+    transform: translateX(4px);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Social Links
+// --------------------------------------------------------------------------
+
+.socialLinks {
+  display: flex;
+  gap: vars.$spacing-sm;
+}
+
+.socialLink {
+  @include mix.flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: vars.$border-radius-md;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color vars.$transition-fast, background-color vars.$transition-fast,
+    transform vars.$transition-fast, box-shadow vars.$transition-fast;
+
+  @include mix.focus-visible;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &.youtube:hover {
+    color: #ff0000;
+    background: rgba(255, 0, 0, 0.1);
+  }
+
+  &.linkedin:hover {
+    color: #0077b5;
+    background: rgba(0, 119, 181, 0.1);
+  }
+
+  &.instagram:hover {
+    color: #e4405f;
+    background: rgba(228, 64, 95, 0.1);
+  }
+
+  &.threads:hover {
+    color: var(--color-text-heading);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // 44×44 touch target minimum
+  @media (pointer: coarse) {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Bottom Bar
+// --------------------------------------------------------------------------
+
+.bottomBar {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.bottomContainer {
+  @include mix.container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vars.$spacing-md;
+  padding-block: vars.$spacing-lg;
+  text-align: center;
+
+  @include mix.respond-to('md') {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.copyrights {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xs;
+}
+
+.copyright {
+  font-size: vars.$font-size-xs;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: vars.$line-height-relaxed;
+}
+
+.founderLink {
+  color: var(--color-text-heading);
+  text-decoration: none;
+  font-weight: vars.$font-weight-bold;
+  transition: color vars.$transition-fast;
+
+  &:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+}
+
+.builtBy {
+  font-size: vars.$font-size-xs;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.sandurTechLink {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: vars.$font-weight-medium;
+  transition: color vars.$transition-fast;
+
+  @include mix.focus-visible;
+
+  &:hover {
+    color: var(--color-accent-light);
+    text-decoration: underline;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Big 3D Text Section
+// --------------------------------------------------------------------------
+
+.bigTextContainer {
+  @include mix.container;
+  padding-top: vars.$spacing-2xl;
+  padding-bottom: vars.$spacing-4xl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.bigText {
+  font-family: vars.$font-family-heading;
+  font-size: clamp(2rem, 8.5vw, 11rem);
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  user-select: none;
+  text-transform: uppercase;
+  max-width: 100%;
+
+  // Deep orange cinematic gradient
+  background: linear-gradient(
+    180deg,
+    vars.$color-accent-light 0%,
+    vars.$color-accent 40%,
+    vars.$color-accent-dark 80%,
+    vars.$color-accent-darkest 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  // Solid 3D layered shadow to create depth without hover
+  filter: 
+    drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.9))
+    drop-shadow(0px 4px 1px rgba(0, 0, 0, 0.7))
+    drop-shadow(0px 8px 4px rgba(255, 163, 26, 0.2))
+    drop-shadow(0px 16px 20px rgba(0, 0, 0, 0.5));
+}
+
+// --------------------------------------------------------------------------
+// Reduced Motion
+// --------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .accentBorder {
+    animation: none;
+  }
+
+  .footerLink,
+  .socialLink {
+    transition: none;
+    transform: none !important;
+  }
+}

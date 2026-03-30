@@ -1,0 +1,50 @@
+@use '../../../scss/abstracts/variables' as vars;
+@use '../../../scss/abstracts/mixins' as mix;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  @include mix.flex-center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.toast {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2xl);
+  padding: vars.$spacing-xl vars.$spacing-2xl;
+  border-radius: vars.$border-radius-2xl;
+  @include mix.flex-column-center;
+  gap: vars.$spacing-md;
+  color: var(--color-text-heading);
+  animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon {
+  font-size: 3rem !important;
+  color: var(--color-accent);
+}
+
+.text {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bold;
+  letter-spacing: vars.$letter-spacing-wider;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

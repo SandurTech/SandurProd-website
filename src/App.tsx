@@ -1,14 +1,18 @@
-import HomePage from './pages/HomePage'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { routeTree } from './routeTree.gen'
+
+// Create the router instance
+const router = createRouter({ routeTree })
+
+// Register the router for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
 
 function App() {
-  return (
-    <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-      <HomePage />
-    </>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

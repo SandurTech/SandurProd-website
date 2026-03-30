@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .agents/skills
 .agents/dumps
+.npm-cache
+src/routeTree.gen.ts
+coverage

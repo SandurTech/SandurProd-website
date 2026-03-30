@@ -1,56 +1,198 @@
 # ==========================================================================
-# robots.txt — Sandur Productions (sandurproductions.com)
+# robots.txt — Sandur Productions (https://sandurproductions.vercel.app)
+# Optimized for Global SEO, AI Search (AEO/GEO), and Social Visibility
 # ==========================================================================
-# Allow all search engine crawlers and AI bots full access
-# to maximize SEO visibility and AI citation potential.
 
-# Default: Allow all crawlers
+# --------------------------------------------------------------------------
+# Sitemap & AI Metadata References
+# --------------------------------------------------------------------------
+Sitemap: https://sandurproductions.vercel.app/sitemap.xml
+# AI-readable site summary (AEO/GEO optimization)
+# https://sandurproductions.vercel.app/llms.txt
+# https://sandurproductions.vercel.app/llms-full.txt
+
+# --------------------------------------------------------------------------
+# Global Default Policy
+# --------------------------------------------------------------------------
 User-agent: *
-Allow: /
 Disallow: /api/
 Disallow: /admin/
-
-# Sitemap reference
-Sitemap: https://sandurproductions.com/sitemap.xml
+Disallow: /_next/
+Allow: /
 
 # --------------------------------------------------------------------------
-# AI Search Bot Access — Explicitly allowed for AI visibility
-# Per AI SEO best practices, these bots should NOT be blocked
-# to enable citation in AI-generated answers.
+# 1. Mainstream Search Engines (Global Coverage)
 # --------------------------------------------------------------------------
 
-# OpenAI (ChatGPT)
+# Google (Global)
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
+User-agent: Googlebot-News
+Allow: /
+
+# Microsoft Bing (Global)
+User-agent: Bingbot
+User-agent: Adidxbot
+Allow: /
+
+# Yandex (Russia/Eurasia)
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: YandexImages
+User-agent: YandexVideo
+Allow: /
+
+# Baidu (China)
+User-agent: Baiduspider
+User-agent: Baiduspider-image
+User-agent: Baiduspider-video
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Apple (Siri, Spotlight, Safari Suggestions)
+User-agent: Applebot
+Allow: /
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+
+# Naver (South Korea)
+User-agent: Yeti
+Allow: /
+
+# Sogou (China)
+User-agent: Sogou spider
+Allow: /
+
+# --------------------------------------------------------------------------
+# 2. AI, LLMs & Generative Engine Optimization (GEO/AEO)
+# --------------------------------------------------------------------------
+
+# OpenAI (ChatGPT, GPT-4, SearchGPT)
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
 Allow: /
 
-# Perplexity
+# Anthropic (Claude, Claude-Web)
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI
 User-agent: PerplexityBot
 Allow: /
 
-# Anthropic (Claude)
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-# Google Gemini & AI Overviews
+# Google Gemini (Extended)
 User-agent: Google-Extended
 Allow: /
 
-# Microsoft Copilot (via Bing)
-User-agent: Bingbot
+# Meta AI (Llama)
+User-agent: FacebookBot
+Allow: /
+
+# Amazon AI
+User-agent: Amazonbot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Common Crawl (Used by many smaller LLMs)
+User-agent: CCBot
 Allow: /
 
 # --------------------------------------------------------------------------
-# Block training-only crawlers (not search-related)
-# These crawl for model training but don't provide citation benefits
+# 3. Social Media Crawlers (Rich Previews & Shares)
 # --------------------------------------------------------------------------
-User-agent: CCBot
-Disallow: /
 
-User-agent: GPTBot-training
-Disallow: /
+# Facebook / Instagram / Meta
+User-agent: Facebot
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter / X
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Pinterest
+User-agent: Pinterest
+User-agent: Pinterestbot
+Allow: /
+
+# Slack
+User-agent: Slackbot
+User-agent: Slack-ImgProxy
+Allow: /
+
+# Discord
+User-agent: Discordbot
+Allow: /
+
+# Telegram
+User-agent: TelegramBot
+Allow: /
+
+# WhatsApp
+User-agent: WhatsApp
+Allow: /
+
+# Reddit
+User-agent: RedditBot
+Allow: /
+
+# --------------------------------------------------------------------------
+# 4. Content Aggregators & Reading Apps
+# --------------------------------------------------------------------------
+
+# Pocket / Read It Later
+User-agent: PocketParser
+Allow: /
+
+# Feedly
+User-agent: Feedly
+Allow: /
+
+# Flipboard
+User-agent: Flipboard
+Allow: /
+
+# --------------------------------------------------------------------------
+# 5. Monitoring & Utility Bots
+# --------------------------------------------------------------------------
+
+# Uptime Monitoring
+User-agent: UptimeRobot
+Allow: /
+
+# SEO Audit Tools (Allowing these for debugging)
+User-agent: AhrefsBot
+User-agent: Rogerbot
+User-agent: SemrushBot
+User-agent: DotBot
+Allow: /
+
+# Screaming Frog (Local auditing)
+User-agent: Screaming Frog SEO Spider
+Allow: /
+
+# --------------------------------------------------------------------------
+# 6. Specific Disallows for Scraping/Training (Optional)
+# --------------------------------------------------------------------------
+# If you wish to block specific training-only bots later, add them here.
+# Currently allowing everything to maximize global AI footprint.
+
+# --------------------------------------------------------------------------
+# End of robots.txt
+# --------------------------------------------------------------------------

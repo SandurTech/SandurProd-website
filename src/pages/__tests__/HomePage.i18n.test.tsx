@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { render, screen, i18n } from '../../test/test-utils'
 import { act } from '@testing-library/react'
-import HomePage from '../../pages/HomePage'
+import HomePage from '../../pages/Home/HomePage'
 
 describe('HomePage i18n Integration', () => {
   beforeEach(async () => {
@@ -13,8 +13,8 @@ describe('HomePage i18n Integration', () => {
   it('renders English content by default', () => {
     render(<HomePage />)
     expect(screen.getByText('Sandur Productions')).toBeInTheDocument()
-    expect(screen.getByText('Our Works')).toBeInTheDocument()
-    expect(screen.getByText('About')).toBeInTheDocument()
+    expect(screen.getByText('Our Projects')).toBeInTheDocument()
+    expect(screen.getByText('About Sandur Productions')).toBeInTheDocument()
     expect(screen.getByText('Get in Touch')).toBeInTheDocument()
   })
 
@@ -26,8 +26,8 @@ describe('HomePage i18n Integration', () => {
     })
 
     expect(screen.getByText('सांदुर प्रोडक्शंस')).toBeInTheDocument()
-    expect(screen.getByText('हमारे कार्य')).toBeInTheDocument()
-    expect(screen.getByText('हमारे बारे में')).toBeInTheDocument()
+    expect(screen.getByText('हमारे प्रोजेक्ट्स')).toBeInTheDocument()
+    expect(screen.getByText('सांदुर प्रोडक्शंस के बारे में')).toBeInTheDocument()
     expect(screen.getByText('संपर्क करें')).toBeInTheDocument()
   })
 
@@ -39,8 +39,8 @@ describe('HomePage i18n Integration', () => {
     })
 
     expect(screen.getByText('ಸಂದೂರ ಪ್ರೊಡಕ್ಷನ್ಸ್')).toBeInTheDocument()
-    expect(screen.getByText('ನಮ್ಮ ಕೆಲಸಗಳು')).toBeInTheDocument()
-    expect(screen.getByText('ನಮ್ಮ ಬಗ್ಗೆ')).toBeInTheDocument()
+    expect(screen.getByText('ನಮ್ಮ ಯೋಜನೆಗಳು')).toBeInTheDocument()
+    expect(screen.getByText('ಸಂದೂರ ಪ್ರೊಡಕ್ಷನ್ಸ್ ಬಗ್ಗೆ')).toBeInTheDocument()
     expect(screen.getByText('ಸಂಪರ್ಕಿಸಿ')).toBeInTheDocument()
   })
 

@@ -1,0 +1,218 @@
+// ==========================================================================
+// About Page — Styles
+// ==========================================================================
+
+@use '../../scss/abstracts/variables' as vars;
+@use '../../scss/abstracts/mixins' as mix;
+
+.aboutPage {
+  padding-top: vars.$spacing-4xl; // Account for fixed header
+}
+
+// --------------------------------------------------------------------------
+// Hero Banner
+// --------------------------------------------------------------------------
+
+.hero {
+  @include mix.section-padding;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg) 0%,
+    var(--color-surface) 50%,
+    var(--color-bg-alt) 100%
+  );
+}
+
+.heroContent {
+  @include mix.container;
+  @include mix.flex-column-center;
+  gap: vars.$spacing-lg;
+}
+
+.heading {
+  @include mix.heading-style;
+  font-size: clamp(vars.$font-size-3xl, 5vw, vars.$font-size-5xl);
+}
+
+.description {
+  font-size: vars.$font-size-lg;
+  color: var(--color-text-muted);
+  max-width: 640px;
+  line-height: vars.$line-height-relaxed;
+}
+
+// --------------------------------------------------------------------------
+// Info Cards
+// --------------------------------------------------------------------------
+
+.infoSection {
+  padding-block: vars.$spacing-3xl;
+}
+
+.container {
+  @include mix.container;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vars.$spacing-md;
+
+  @include mix.respond-to('md') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.infoCard {
+  @include mix.flex-column-center;
+  gap: vars.$spacing-xs;
+  padding: vars.$spacing-lg;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: vars.$border-radius-lg;
+  text-align: center;
+  transition: border-color vars.$transition-fast, transform vars.$transition-fast;
+
+  &:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+}
+
+.infoIcon {
+  color: var(--color-accent);
+  font-size: 28px !important;
+}
+
+.infoLabel {
+  font-size: vars.$font-size-xs;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: vars.$letter-spacing-wider;
+}
+
+.infoValue {
+  font-size: vars.$font-size-xl;
+  font-weight: vars.$font-weight-bold;
+  color: var(--color-text-heading);
+}
+
+// --------------------------------------------------------------------------
+// Mission
+// --------------------------------------------------------------------------
+
+.missionSection {
+  @include mix.section-padding;
+  text-align: center;
+}
+
+.sectionHeading {
+  @include mix.heading-style;
+  font-size: vars.$font-size-2xl;
+  margin-bottom: vars.$spacing-lg;
+}
+
+.missionText {
+  font-size: vars.$font-size-lg;
+  color: var(--color-text);
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: vars.$line-height-relaxed;
+}
+
+// --------------------------------------------------------------------------
+// Contact
+// --------------------------------------------------------------------------
+
+.contactSection {
+  @include mix.section-padding;
+  text-align: center;
+  background: var(--color-surface);
+}
+
+.contactDescription {
+  font-size: vars.$font-size-md;
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+// --------------------------------------------------------------------------
+// Social
+// --------------------------------------------------------------------------
+
+.socialSection {
+  @include mix.section-padding;
+  text-align: center;
+}
+
+.socialLinks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vars.$spacing-md;
+  max-width: 480px;
+  margin-inline: auto;
+  margin-top: vars.$spacing-md;
+
+  @include mix.respond-to('sm') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.socialCard {
+  @include mix.flex-column-center;
+  padding: vars.$spacing-xl;
+  text-decoration: none;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: vars.$border-radius-xl;
+  transition: all vars.$transition-base;
+  text-align: center;
+  gap: vars.$spacing-md;
+
+  &:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--brand-color, var(--color-accent));
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(var(--brand-color), 0.2);
+
+    .socialIcon {
+      color: var(--brand-color, var(--color-accent));
+      transform: scale(1.1);
+    }
+
+    .socialName {
+      color: var(--brand-color, var(--color-accent));
+    }
+  }
+}
+
+.socialIcon {
+  font-size: 40px;
+  color: var(--color-text-muted);
+  transition: all vars.$transition-base;
+}
+
+.socialName {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: vars.$letter-spacing-wider;
+  color: var(--color-text-muted);
+  transition: color vars.$transition-base;
+}
+
+// --------------------------------------------------------------------------
+// Reduced Motion
+// --------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .infoCard,
+  .socialCard {
+    transition: none;
+  }
+}

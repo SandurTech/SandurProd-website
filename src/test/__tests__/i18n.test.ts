@@ -6,15 +6,13 @@ import i18n from '../i18n-test'
 const englishKeys = {
   'hero.title': 'Sandur Productions',
   'hero.subtitle': 'Crafting cinematic stories that move, inspire, and provoke thought.',
-  'nav.works': 'Works',
+  'nav.projects': 'Projects',
   'nav.about': 'About',
-  'nav.contact': 'Contact',
-  'works.heading': 'Our Works',
-  'works.theScam.title': 'THE SCAM',
-  'works.uttara.title': 'UTTARA',
-  'about.heading': 'About',
-  'contact.heading': 'Get in Touch',
-  'footer.madeWith': 'Made with passion',
+  'nav.blog': 'Blog',
+  'projects.heading': 'Our Projects',
+  'projects.theScam.title': 'THE SCAM',
+  'projects.uttara.title': 'UTTARA',
+  'about.heading': 'About Sandur Productions',
   'footer.social.youtube': 'YouTube',
   'footer.social.linkedin': 'LinkedIn',
   'footer.social.instagram': 'Instagram',
@@ -23,21 +21,19 @@ const englishKeys = {
 
 const hindiKeys: Record<string, string> = {
   'hero.title': 'सांदुर प्रोडक्शंस',
-  'nav.works': 'कार्य',
+  'nav.projects': 'प्रोजेक्ट्स',
   'nav.about': 'हमारे बारे में',
-  'works.heading': 'हमारे कार्य',
-  'about.heading': 'हमारे बारे में',
-  'contact.heading': 'संपर्क करें',
+  'projects.heading': 'हमारे प्रोजेक्ट्स',
+  'about.heading': 'सांदुर प्रोडक्शंस के बारे में',
   'footer.social.youtube': 'यूट्यूब',
 }
 
 const kannadaKeys: Record<string, string> = {
   'hero.title': 'ಸಂದೂರ ಪ್ರೊಡಕ್ಷನ್ಸ್',
-  'nav.works': 'ಕೆಲಸಗಳು',
+  'nav.projects': 'ಯೋಜನೆಗಳು',
   'nav.about': 'ನಮ್ಮ ಬಗ್ಗೆ',
-  'works.heading': 'ನಮ್ಮ ಕೆಲಸಗಳು',
-  'about.heading': 'ನಮ್ಮ ಬಗ್ಗೆ',
-  'contact.heading': 'ಸಂಪರ್ಕಿಸಿ',
+  'projects.heading': 'ನಮ್ಮ ಯೋಜನೆಗಳು',
+  'about.heading': 'ಸಂದೂರ ಪ್ರೊಡಕ್ಷನ್ಸ್ ಬಗ್ಗೆ',
   'footer.social.youtube': 'ಯೂಟ್ಯೂಬ್',
 }
 
@@ -82,8 +78,8 @@ describe('i18n Configuration', () => {
     }
 
     it('interpolates footer copyright with year', () => {
-      const result = i18n.t('footer.copyright', { year: 2026 })
-      expect(result).toBe('© 2026 Sandur Productions. All rights reserved.')
+      const result = i18n.t('footer.copyrightCombined', { year: 2026 })
+      expect(result).toBe('© 2026 Amogha Raj Sandur & Sandur Productions. All rights reserved.')
     })
   })
 
@@ -149,7 +145,7 @@ describe('i18n Configuration', () => {
         await i18n.changeLanguage('hi')
       })
       // THE SCAM title is the same in all languages (brand name)
-      expect(i18n.t('works.theScam.title')).toBe('THE SCAM')
+      expect(i18n.t('projects.theScam.title')).toBe('THE SCAM')
     })
   })
 
@@ -168,7 +164,7 @@ describe('i18n Configuration', () => {
     })
 
     it('Hindi has translations for critical navigation keys', () => {
-      const criticalKeys = ['nav.works', 'nav.about', 'nav.contact', 'hero.title']
+      const criticalKeys = ['nav.projects', 'nav.about', 'nav.blog', 'hero.title']
       for (const key of criticalKeys) {
         const value = i18n.t(key, { lng: 'hi' })
         expect(value).toBeTruthy()
@@ -177,7 +173,7 @@ describe('i18n Configuration', () => {
     })
 
     it('Kannada has translations for critical navigation keys', () => {
-      const criticalKeys = ['nav.works', 'nav.about', 'nav.contact', 'hero.title']
+      const criticalKeys = ['nav.projects', 'nav.about', 'nav.blog', 'hero.title']
       for (const key of criticalKeys) {
         const value = i18n.t(key, { lng: 'kn' })
         expect(value).toBeTruthy()

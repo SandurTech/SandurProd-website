@@ -1,0 +1,526 @@
+// ==========================================================================
+// Sidebar — Component Styles
+// ==========================================================================
+
+@use '../../../scss/abstracts/variables' as vars;
+@use '../../../scss/abstracts/mixins' as mix;
+
+// --------------------------------------------------------------------------
+// Backdrop
+// --------------------------------------------------------------------------
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: vars.$z-index-modal;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  &.backdropOpen {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Sidebar Drawer
+// --------------------------------------------------------------------------
+
+.sidebar {
+  position: fixed;
+  top: vars.$spacing-lg;
+  right: vars.$spacing-lg;
+  bottom: vars.$spacing-lg;
+  width: min(calc(100% - vars.$spacing-2xl), 320px);
+  z-index: vars.$z-index-modal + 1;
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: vars.$border-radius-2xl;
+  box-shadow: var(--shadow-2xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  // Slide animation
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+  &.sidebarOpen {
+    transform: translateX(0);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Header
+// --------------------------------------------------------------------------
+
+.header {
+  @include mix.flex-between;
+  padding: vars.$spacing-lg;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: vars.$letter-spacing-wider;
+  color: var(--color-text-heading);
+}
+
+.closeBtn {
+  @include mix.flex-center;
+  padding: vars.$spacing-xs;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: vars.$border-radius-md;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all vars.$transition-fast;
+
+  &:hover {
+    color: var(--color-accent);
+    background: rgba(var(--color-accent), 0.08);
+    border-color: rgba(var(--color-accent), 0.15);
+  }
+
+  svg {
+    font-size: 20px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Content
+// --------------------------------------------------------------------------
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: vars.$spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xl;
+
+  // Custom scrollbar
+  @include mix.hide-scrollbar;
+}
+
+// --------------------------------------------------------------------------
+// Divider
+// --------------------------------------------------------------------------
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+  margin-block: vars.$spacing-lg;
+  opacity: 0.5;
+}
+
+// --------------------------------------------------------------------------
+// Navigation Section
+// --------------------------------------------------------------------------
+
+.navSection {
+  margin-bottom: vars.$spacing-2xl;
+}
+
+// --------------------------------------------------------------------------
+// Search Section
+// --------------------------------------------------------------------------
+
+.searchSection {
+  margin-bottom: vars.$spacing-lg;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  border-radius: vars.$border-radius-lg;
+  padding: 0 vars.$spacing-md;
+  height: 48px;
+  transition: all vars.$transition-fast;
+
+  &:focus-within {
+    border-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(var(--color-accent-rgb), 0.2);
+  }
+}
+
+.searchIcon {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+.searchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: vars.$font-size-md;
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.searchClear {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  padding: vars.$spacing-xs;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color vars.$transition-fast;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Search Results (Sidebar)
+// --------------------------------------------------------------------------
+
+.searchResults {
+  margin-top: vars.$spacing-md;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: vars.$border-radius-md;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.resultsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$spacing-md;
+  text-decoration: none;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  transition: background vars.$transition-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(var(--color-accent-rgb), 0.1);
+  }
+}
+
+.resultInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resultTitle {
+  font-weight: vars.$font-weight-bold;
+  font-size: vars.$font-size-sm;
+  color: var(--color-text-heading);
+}
+
+.resultGenre {
+  font-size: vars.$font-size-xs;
+  color: var(--color-text-muted);
+}
+
+.resultArrow {
+  font-size: 0.8rem !important;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+.noResults {
+  padding: vars.$spacing-md;
+  text-align: center;
+  font-size: vars.$font-size-sm;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xs;
+}
+
+.navLink {
+  @include mix.flex-between;
+  padding: vars.$spacing-lg;
+  text-decoration: none;
+  color: var(--color-text);
+  border-radius: vars.$border-radius-lg;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  transition: all vars.$transition-fast;
+
+  .linkLabel {
+    font-size: vars.$font-size-md;
+    font-weight: vars.$font-weight-medium;
+  }
+
+  .linkIcon {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    transition: transform vars.$transition-fast;
+  }
+
+  &:hover {
+    background: rgba(var(--color-accent), 0.08);
+    border-color: rgba(var(--color-accent), 0.15);
+    color: var(--color-accent);
+
+    .linkIcon {
+      transform: translateX(4px);
+    }
+  }
+
+  &.active {
+    background: var(--color-accent);
+    color: var(--color-text-on-accent);
+    box-shadow: 0 4px 12px rgba(var(--color-accent), 0.3);
+
+    .linkIcon {
+      color: var(--color-text-on-accent);
+    }
+  }
+}
+
+.animIn {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: linkEntry 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes linkEntry {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  width: 100%;
+}
+
+// --------------------------------------------------------------------------
+// Preferences
+// --------------------------------------------------------------------------
+
+.preferences {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xl;
+}
+
+.sectionTitle {
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: vars.$letter-spacing-wider;
+  color: var(--color-text-muted);
+  margin-bottom: vars.$spacing-xs;
+}
+
+.prefRow {
+  @include mix.flex-between;
+  padding: vars.$spacing-lg;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: vars.$border-radius-lg;
+}
+
+.plainBtn {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: vars.$font-size-sm;
+  cursor: pointer;
+  padding: vars.$spacing-xs 0;
+  text-align: left;
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.prefInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.prefLabel {
+  font-size: vars.$font-size-xs;
+  color: var(--color-text-muted);
+}
+
+.prefValue {
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-semibold;
+  color: var(--color-text-heading);
+  text-transform: capitalize;
+}
+
+.themeToggle {
+  @include mix.flex-center;
+  width: 44px;
+  height: 44px;
+  border-radius: vars.$border-radius-md;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all vars.$transition-fast;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Language Select
+// --------------------------------------------------------------------------
+
+.langSection {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-md;
+}
+
+.langHeader {
+  display: flex;
+  align-items: center;
+  gap: vars.$spacing-xs;
+  color: var(--color-text-muted);
+
+  svg {
+    font-size: 18px;
+  }
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.langSelect {
+  width: 100%;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-heading);
+  padding: vars.$spacing-md vars.$spacing-lg;
+  border-radius: vars.$border-radius-lg;
+  font-family: vars.$font-family-base;
+  font-size: vars.$font-size-md;
+  font-weight: vars.$font-weight-medium;
+  cursor: pointer;
+  transition: all vars.$transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(255, 163, 26, 0.2);
+  }
+
+  option {
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+}
+
+.selectArrow {
+  position: absolute;
+  right: vars.$spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+
+  svg {
+    font-size: 14px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Footer
+// --------------------------------------------------------------------------
+
+.footer {
+  padding: vars.$spacing-xl vars.$spacing-lg;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.copyright {
+  font-size: vars.$font-size-xs;
+  color: var(--color-text-muted);
+  font-family: vars.$font-family-heading;
+  letter-spacing: vars.$letter-spacing-wide;
+}
+
+// --------------------------------------------------------------------------
+// Reduced Motion
+// --------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .backdrop,
+  .navLink,
+  .themeToggle,
+  .langSelect {
+    transition: none;
+    animation: none;
+  }
+}

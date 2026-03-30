@@ -1,0 +1,222 @@
+@use '../../../scss/abstracts/variables' as vars;
+@use '../../../scss/abstracts/mixins' as mix;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  @include mix.flex-center;
+  padding: vars.$spacing-md;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal {
+  background: var(--color-bg); // Use a solid background here so text is readable
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2xl);
+  border-radius: vars.$border-radius-xl;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.header {
+  padding: vars.$spacing-lg;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$font-size-xl;
+  font-weight: vars.$font-weight-bold;
+  color: var(--color-text-heading);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: vars.$spacing-xs;
+  border-radius: vars.$border-radius-circle;
+  transition: all vars.$transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+  }
+}
+
+.content {
+  padding: vars.$spacing-lg;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xl;
+}
+
+.description {
+  font-size: vars.$font-size-md;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.preferenceGroup {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-sm;
+  padding: vars.$spacing-md;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: vars.$border-radius-lg;
+}
+
+.prefHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prefTitleBlock {
+  display: flex;
+  align-items: center;
+  gap: vars.$spacing-sm;
+
+  h3 {
+    font-size: vars.$font-size-md;
+    font-weight: vars.$font-weight-bold;
+    color: var(--color-text);
+  }
+}
+
+.badge {
+  font-size: vars.$font-size-xs;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  padding: 2px 8px;
+  border-radius: vars.$border-radius-pill;
+  font-weight: vars.$font-weight-medium;
+}
+
+.prefDesc {
+  font-size: vars.$font-size-sm;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: var(--color-accent);
+    }
+
+    &:focus + .slider {
+      box-shadow: 0 0 1px var(--color-accent);
+    }
+
+    &:checked + .slider:before {
+      transform: translateX(20px);
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-border);
+    transition: 0.3s;
+    border-radius: 34px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+  }
+}
+
+.links {
+  margin-top: vars.$spacing-sm;
+  text-align: center;
+}
+
+.learnMore {
+  color: var(--color-accent);
+  font-size: vars.$font-size-sm;
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}
+
+.footer {
+  padding: vars.$spacing-lg;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnSave {
+  padding: vars.$spacing-sm vars.$spacing-xl;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border: none;
+  font-weight: vars.$font-weight-bold;
+  border-radius: vars.$border-radius-pill;
+  cursor: pointer;
+  transition: all vars.$transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--color-accent-rgb), 0.3);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

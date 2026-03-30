@@ -112,3 +112,35 @@ a {
   font-size: vars.$font-size-sm;
   font-weight: vars.$font-weight-semibold;
 }
+
+// --------------------------------------------------------------------------
+// Language-Specific Adjustments
+// --------------------------------------------------------------------------
+
+html.lang-hi {
+  body {
+    font-family: vars.$font-family-hindi;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: vars.$font-family-hindi;
+    line-height: vars.$line-height-snug;
+    text-transform: none; // Uppercase doesn't apply to Hindi
+  }
+}
+
+html.lang-kn {
+  body {
+    font-family: vars.$font-family-kannada;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: vars.$font-family-kannada;
+    line-height: vars.$line-height-snug;
+    text-transform: none; // Uppercase doesn't apply to Kannada
+  }
+}

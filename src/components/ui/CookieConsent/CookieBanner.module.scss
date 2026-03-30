@@ -1,0 +1,135 @@
+@use '../../../scss/abstracts/variables' as vars;
+@use '../../../scss/abstracts/mixins' as mix;
+
+.bannerWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 9999; // Above almost everything
+  padding: vars.$spacing-md;
+  pointer-events: none; // Allow clicks behind it if necessary, though it's standard full width
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  @include mix.respond-to('md') {
+    padding: vars.$spacing-xl;
+  }
+}
+
+.bannerContainer {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2xl);
+  border-radius: vars.$border-radius-xl;
+  padding: vars.$spacing-lg;
+  width: 100%;
+  max-width: 1000px;
+  pointer-events: auto;
+  
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-lg;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include mix.respond-to('md') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: vars.$spacing-xl;
+  }
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-family: vars.$font-family-heading;
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bold;
+  color: var(--color-text-heading);
+  margin-bottom: vars.$spacing-sm;
+}
+
+.text {
+  font-size: vars.$font-size-sm;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-sm;
+  width: 100%;
+
+  @include mix.respond-to('sm') {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+%btn {
+  padding: vars.$spacing-sm vars.$spacing-lg;
+  border-radius: vars.$border-radius-pill;
+  font-weight: vars.$font-weight-medium;
+  font-size: vars.$font-size-sm;
+  cursor: pointer;
+  transition: all vars.$transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.btnCustomize {
+  @extend %btn;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-text-muted);
+  }
+}
+
+.btnReject {
+  @extend %btn;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-text-muted);
+  }
+}
+
+.btnAccept {
+  @extend %btn;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border: 1px solid transparent;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--color-accent-rgb), 0.3);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

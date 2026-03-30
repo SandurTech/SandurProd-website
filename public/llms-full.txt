@@ -1,0 +1,107 @@
+# Sandur Productions — Full Documentation
+
+> Comprehensive AI-readable documentation for Sandur Productions, including site structure, detailed project information, and organizational context.
+
+## Organizational Overview
+
+Sandur Productions is an independent student-led production house founded by Amogha Raj Sandur in 2026. Part of the Sandur Group Ventures ecosystem, it focuses on high-quality cinematic storytelling, including web series, short films, and documentaries.
+
+### Core Mission
+To tell stories that matter. We believe in the power of cinema to illuminate truth, challenge perspectives, and create lasting emotional impact.
+
+### Brand Identity
+- **Name:** Sandur Productions
+- **Founder:** Amogha Raj Sandur
+- **Based In:** India
+- **Parent Organization:** Sandur Group Ventures
+- **Technology Partner:** SandurTech (Sandur Technologies)
+
+---
+
+## Website Structure & Localization
+
+The website uses a locale-prefixed routing system (`/[locale]/`) and supports three languages:
+- **English (en):** Primary language and default fallback.
+- **Hindi (hi):** Full localization for Hindi-speaking audiences.
+- **Kannada (kn):** Full localization for Kannada-speaking audiences.
+
+### Sitemap & Routes
+
+| Page | URL Pattern | Description |
+|------|-------------|-------------|
+| **Home** | `/[locale]/` | Landing page featuring the cinematic hero, recent works, and core mission. |
+| **About** | `/[locale]/about` | Detailed information about the production house, its history, and founder. |
+| **Projects** | `/[locale]/projects` | A showcase of all productions with filtering and search capabilities. |
+| **Blog** | `/[locale]/blog` | Behind-the-scenes content, updates, and cinematic insights (Coming Soon). |
+| **Privacy Policy** | `/[locale]/privacy` | Comprehensive data protection and privacy policy. |
+| **Cookie Policy** | `/[locale]/cookie-policy` | Detailed explanation of cookie usage and user consent management. |
+| **Terms of Use** | `/[locale]/terms` | Legal terms and conditions for using the website. |
+| **GDPR** | `/[locale]/gdpr` | Information regarding General Data Protection Regulation compliance. |
+
+---
+
+## Detailed Project Catalog
+
+### 1. THE SCAM (Finance Web Series)
+- **Status:** In Production
+- **Category:** Web Series
+- **Year:** 2026
+- **Genre:** Finance / Drama
+- **Description:** A gripping finance web series exploring the world of financial fraud and deception. It dives deep into the high-stakes world of finance where the line between ambition and crime is razor-thin.
+- **Crew:** Directed by Amogha Raj Sandur.
+
+### 2. UTTARA (Short Film)
+- **Status:** Released
+- **Category:** Short Film
+- **Year:** 2026
+- **Genre:** Drama / Short Film
+- **Description:** A compelling and emotionally resonant short film that showcases the signature cinematic style of Sandur Productions.
+- **Crew:** Directed by Amogha Raj Sandur.
+
+---
+
+## Legal & Compliance
+
+### GDPR & Privacy
+Sandur Productions operates on a **default-denied** privacy architecture. No non-essential cookies (Analytics or Marketing) are loaded until the user provides explicit consent via the Cookie Consent Banner or Preferences Modal.
+- **Analytics:** Google Analytics and Microsoft Clarity (consent-gated).
+- **Control:** Users can revoke or change their consent at any time through the localized "Privacy Preferences" accessible in the site navigation.
+
+### Accessibility
+The site is built with a focus on accessibility, including:
+- **Skip Links:** For keyboard navigation efficiency.
+- **High Contrast Support:** Theme-aware high-contrast mode for users with visual impairments.
+- **Screen Reader Optimization:** Using semantic HTML and the `inert` attribute for managing focus in off-screen menus.
+
+---
+
+## External Presence
+
+### Social Channels
+- **YouTube:** [Sandur Productions Official](https://www.youtube.com/@SandurProductions) — Official trailer and project releases.
+- **LinkedIn:** [Sandur Productions Company Page](https://www.linkedin.com/company/sandur-productions/) — Professional updates and industry connections.
+- **Instagram:** [@sandur_productions](https://www.instagram.com/sandur_productions/) — Visual updates and behind-the-scenes content.
+- **Threads:** [@sandur_productions](https://www.threads.net/@sandur_productions) — Quick updates and engagement.
+
+### Founder & Tech
+- **Amogha Raj Sandur (Founder):** [LinkedIn Profile](https://www.linkedin.com/in/amogharajsandur/)
+- **SandurTech (Developer):** [Official Website](https://sandurtech.vercel.app)
+
+---
+
+## Technical Stack
+
+- **Framework:** React 19 (Vite 8)
+- **Language:** TypeScript
+- **Routing:** TanStack Router
+- **Styling:** SCSS (7-1 Pattern) with Theme Support
+- **Internationalization:** react-i18next (Locale-prefixed paths)
+- **Deployment:** Vercel (https://sandurproductions.vercel.app)
+
+---
+
+## Metadata
+
+- **Last Updated:** 2026-03-30
+- **Version:** 2.0.0 (Multi-Page / i18n / GDPR)
+- **Canonical URL:** https://sandurproductions.vercel.app

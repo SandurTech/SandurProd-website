@@ -20,16 +20,13 @@
 
 // Layout (structural layout patterns)
 @use 'layout/grid';
-@use 'layout/header';
-@use 'layout/navigation';
-@use 'layout/footer';
 
 // Components (reusable UI components)
 @use 'components/buttons';
 @use 'components/cards';
 
 // Pages (page-specific styles)
-@use 'pages/home';
+// Page styles are now modularized in their respective component directories.
 
 // Themes (theme overrides)
 @use 'themes/default';

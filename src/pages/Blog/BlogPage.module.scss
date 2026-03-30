@@ -1,0 +1,126 @@
+@use '../../scss/abstracts/variables' as vars;
+@use '../../scss/abstracts/mixins' as mix;
+
+.blogLayout {
+  min-height: 80vh;
+  padding-block: vars.$spacing-5xl;
+  background: var(--color-bg);
+  @include mix.flex-center;
+  flex-direction: column;
+}
+
+.container {
+  @include mix.container;
+  max-width: 800px;
+  animation: fadeIn 0.8s vars.$transition-cinematic;
+}
+
+.header {
+  margin-bottom: vars.$spacing-3xl;
+  text-align: center;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: vars.$spacing-xs;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: vars.$font-size-sm;
+  transition: color vars.$transition-fast;
+  margin-bottom: vars.$spacing-xl;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.title {
+  @include mix.heading-style;
+  font-size: clamp(vars.$font-size-3xl, 5vw, vars.$font-size-5xl);
+  margin-bottom: vars.$spacing-md;
+  
+  // Subtle gradient
+  background: linear-gradient(to right, var(--color-text-heading), var(--color-text-muted));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: vars.$font-size-lg;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: vars.$border-radius-xl;
+  padding: vars.$spacing-4xl vars.$spacing-2xl;
+  box-shadow: var(--shadow-lg);
+  @include mix.glass;
+  position: relative;
+  overflow: hidden;
+  
+  // Decorative accent line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, vars.$color-accent-dark, vars.$color-accent, vars.$color-accent-light);
+  }
+}
+
+.developmentState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: vars.$spacing-lg;
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: vars.$border-radius-circle;
+  background: rgba(var(--color-accent-rgb), 0.1);
+  @include mix.flex-center;
+  color: var(--color-accent);
+  margin-bottom: vars.$spacing-md;
+  box-shadow: 0 0 30px rgba(var(--color-accent-rgb), 0.1);
+}
+
+.icon {
+  font-size: 40px !important;
+}
+
+.statusText {
+  font-size: vars.$font-size-xl;
+  font-weight: vars.$font-weight-medium;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.statusSubtext {
+  font-size: vars.$font-size-md;
+  color: var(--color-text-muted);
+  max-width: 400px;
+  margin: 0;
+  line-height: vars.$line-height-relaxed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

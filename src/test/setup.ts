@@ -17,9 +17,14 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 })
 
+// Mock window.scrollTo
+window.scrollTo = vi.fn()
+
 // Automatic cleanup after each test
 afterEach(() => {
   cleanup()
+  localStorage.clear()
+  vi.clearAllMocks()
 })
 
 // Mock CSS/SCSS module imports

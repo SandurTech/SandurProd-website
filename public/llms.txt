@@ -1,0 +1,63 @@
+# Sandur Productions — Independent Film Production House
+
+> Official website of Sandur Productions, an independent student-led production house founded by Amogha Raj Sandur. We craft cinematic stories that move, inspire, and provoke thought.
+
+## Links
+- [Full Documentation](https://sandurproductions.vercel.app/llms-full.txt)
+
+## About
+
+Sandur Productions is an independent student-led production house founded by Amogha Raj Sandur. Based in India, we create cinematic stories — from gripping web series to compelling short films. Founded in 2026.
+
+## Languages
+
+- English (en) — Default
+- Hindi (hi)
+- Kannada (kn)
+
+## Important Pages
+
+- Home: /[locale]/
+- About: /[locale]/about
+- Projects: /[locale]/projects
+- Blog: /[locale]/blog
+- Privacy Policy: /[locale]/privacy
+- Cookie Policy: /[locale]/cookie-policy
+- Terms of Use: /[locale]/terms
+- GDPR Compliance: /[locale]/gdpr
+
+## Projects
+
+### THE SCAM
+- Type: Finance Web Series
+- Genre: Finance / Drama
+- Language: English
+- Description: A gripping finance web series exploring the world of financial fraud and deception.
+
+### UTTARA
+- Type: Short Film
+- Genre: Short Film
+- Language: English
+- Description: A compelling short film by Sandur Productions.
+
+## Founder
+
+- Name: Amogha Raj Sandur
+- Role: Founder & Creative Director
+- LinkedIn: https://www.linkedin.com/in/amogharajsandur/
+
+## Social Media
+
+- YouTube: https://www.youtube.com/@SandurProductions
+- LinkedIn: https://www.linkedin.com/company/sandur-productions/
+- Instagram: https://www.instagram.com/sandur_productions/
+- Threads: https://www.threads.net/@sandur_productions
+
+## Technology
+
+Designed, developed & maintained by SandurTech (Sandur Technologies).
+- Website: https://sandurtech.vercel.app
+
+## Contact
+
+For collaborations, projects, or inquiries, reach out via social media channels listed above.
