@@ -8,10 +8,13 @@
   width: 100vw;
   z-index: 9999; // Above almost everything
   padding: vars.$spacing-md;
-  pointer-events: none; // Allow clicks behind it if necessary, though it's standard full width
+  pointer-events: none; // Allow clicks behind the wrapper
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  // Ensure the entire viewport height is covered but not blocked
+  height: auto;
+  pointer-events: none;
 
   @include mix.respond-to('md') {
     padding: vars.$spacing-xl;

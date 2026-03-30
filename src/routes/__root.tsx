@@ -18,15 +18,16 @@ import { HeadContent } from '@tanstack/react-router'
 export const Route = createRootRoute({
   component: RootLayout,
   notFoundComponent: NotFound,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // head hook for global SEO metadata
   head: (ctx: any) => {
     const BASE_URL = 'https://sandurproductions.vercel.app'
     const location = ctx.location ?? ctx.router?.state?.location ?? (typeof window !== 'undefined' ? window.location : { pathname: '/' })
     const path = location.pathname
     const segments = path.split('/').filter(Boolean)
     
-    const firstSegment = segments[0] as typeof SUPPORTED_LOCALES[number]
-    const currentLang = SUPPORTED_LOCALES.includes(firstSegment) ? firstSegment : 'en'
+    const firstSegment = segments[0]
+    const rawPathLang = firstSegment?.split('-')[0]
+    const currentLang = SUPPORTED_LOCALES.includes(rawPathLang as any) ? rawPathLang : 'en'
     const routePath = segments.length > 1 ? '/' + segments.slice(1).join('/') : '/'
 
     const canonicalUrl = `${BASE_URL}/${currentLang}${routePath === '/' ? '' : routePath}`
@@ -46,6 +47,12 @@ export const Route = createRootRoute({
     })
 
     return {
+      meta: [
+        {
+          name: 'google-site-verification',
+          content: 'awnprtwVkMPFt1AmMrIC7OjJx-9VKq32qOd-QoqEzjg',
+        },
+      ],
       links,
       scripts: [
         {
@@ -103,7 +110,7 @@ function RootLayout() {
     const segments = path.split('/').filter(Boolean)
     const firstSegment = segments[0]
 
-    // Determine the preferred/active language from i18n settings
+    // Determine the preferred/active language from i18n settings (Strip region tags like en-GB)
     const rawLang = i18n.language || 'en'
     const baseLang = rawLang.split('-')[0]
     const activeLang = SUPPORTED_LOCALES.includes(baseLang as (typeof SUPPORTED_LOCALES)[number]) ? baseLang : 'en'

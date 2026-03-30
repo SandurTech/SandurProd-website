@@ -36,8 +36,8 @@ const Header = () => {
   const searchInputRef = useRef<HTMLInputElement>(null)
   const langDropdownRef = useRef<HTMLDivElement>(null)
 
-  // Current locale from URL
-  const currentLocale = i18n.language || 'en'
+  // Current locale from URL (Strip region tags)
+  const currentLocale = (i18n.language || 'en').split('-')[0]
 
   // --------------------------------------------------------------------------
   // Scroll detection for sticky header background
